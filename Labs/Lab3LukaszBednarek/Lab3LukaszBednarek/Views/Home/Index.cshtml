@@ -1,0 +1,39 @@
+﻿@model ValueCalculatorModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Value Calculator</h1>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="Lukasz" viewport" content="width = device-width" />
+    <title> Value Calculator </title>
+</head>
+<body>
+    <h1> Value Calculator </h1>
+    <form asp-action="Index" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="monthlyInvestment"> Monthly Investment </label>
+            <input asp-for="monthlyInvestment" />
+        </div>
+        <div>
+            <label asp-for="yearlyInterestRate"> Yearly Interest Rate </label>
+            <input asp-for="yearlyInterestRate" />
+        </div>
+        <div>
+            <label asp-for="numberOfYears"> Number of Years </label>
+            <input asp-for="numberOfYears" />
+        </div>
+        <div>
+            <label> Calculated Value: </label>
+            <input value="@ViewBag.myCalculatedValue.ToString("C2")" readonly />
+        </div>
+        <button type="submit">Calculate</button>
+        <a asp-action="Index" >Clear</a>
+    </form>
+</body>
+</html>
